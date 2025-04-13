@@ -6,7 +6,8 @@
     <title>Contact - EclaTrans</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/form-notification.css">
-    <script src="js/mobile-menu.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="js/contact-form.js" defer></script>
 </head>
 <body>
@@ -22,6 +23,11 @@
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -35,49 +41,71 @@
     <section class="contact-section">
         <div class="container">
             <div class="section-title">
-                <h2>Nous Contacter</h2>
+                <h2><i class="fas fa-envelope"></i> Nous Contacter</h2>
                 <p>Remplissez le formulaire ci-dessous ou utilisez nos coordonnées pour nous contacter directement.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-form-container">
-                    <form class="contact-form">
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <label for="name"><i class="fas fa-user"></i> Nom</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" class="form-control">
+                            <label for="phone"><i class="fas fa-phone"></i> Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" class="form-control" required>
+                            <label for="subject"><i class="fas fa-tag"></i> Sujet</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <label for="message"><i class="fas fa-comment"></i> Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Envoyer</button>
+                        <div class="notification success-message" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.
+                        </div>
+                        <div class="notification error-message" style="display: none;">
+                            <i class="fas fa-exclamation-circle"></i> Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ou nous contacter directement par téléphone.
+                        </div>
+                        <button type="submit" class="btn btn-large"><i class="fas fa-paper-plane"></i> Envoyer</button>
                     </form>
                 </div>
                 <div class="contact-info-container">
                     <div class="contact-info">
-                        <h3>Coordonnées</h3>
-                        <p><strong>Adresse :</strong> 7 Place des marchands laboureurs, 95120 Ermont</p>
-                        <p><strong>Téléphone :</strong> +33 6 1316 1363 / +33 1 8948 0758</p>
-                        <p><strong>Email :</strong> contact@eclatrans.fr</p>
-                        <p><strong>Horaires d'ouverture :</strong> Lundi au Vendredi, 8h00 - 18h00</p>
+                        <h3><i class="fas fa-address-card"></i> Coordonnées</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse :</strong> 7 Place des marchands laboureurs, 95120 Ermont</p>
+                        <p><i class="fas fa-phone"></i> <strong>Téléphone :</strong> +33 6 1316 1363 / +33 1 8948 0758</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email :</strong> <a href="mailto:contact@eclatrans.fr">contact@eclatrans.fr</a></p>
+                        <p><i class="fas fa-clock"></i> <strong>Horaires d'ouverture :</strong> Lundi au Vendredi, 8h00 - 18h00</p>
                     </div>
                     <div class="contact-info">
-                        <h3>Demande de Devis</h3>
+                        <h3><i class="fas fa-file-invoice"></i> Demande de Devis</h3>
                         <p>Pour une demande de devis personnalisé, veuillez nous contacter par téléphone ou par email en précisant vos besoins spécifiques.</p>
                         <p>Nous vous répondrons dans les plus brefs délais avec une proposition adaptée à votre établissement.</p>
+                        <div class="social-links contact-social">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-map-marked-alt"></i> Notre Localisation</h2>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.5762759169747!2d2.2558!3d48.9878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f9e8a6a1af9%3A0x1c0b82c6d9c5a1a0!2s7%20Pl.%20des%20Marchands%20Laboureurs%2C%2095120%20Ermont!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -87,12 +115,17 @@
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>EclaTrans</h3>
-                    <p>7 Place des marchands laboureurs<br>95120 Ermont</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 7 Place des marchands laboureurs<br>95120 Ermont</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Téléphone: +33 6 1316 1363 / +33 1 8948 0758<br>
-                    Email: contact@eclatrans.fr</p>
+                    <p><i class="fas fa-phone"></i> +33 6 1316 1363 / +33 1 8948 0758<br>
+                    <i class="fas fa-envelope"></i> <a href="mailto:contact@eclatrans.fr">contact@eclatrans.fr</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Liens Rapides</h3>
@@ -110,5 +143,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>
