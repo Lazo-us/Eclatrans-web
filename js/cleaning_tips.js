@@ -45,8 +45,8 @@ const cleaningTips = {
 };
 
 // Fonction pour afficher les astuces de nettoyage
-function showCleaningTips(serviceId) {
-    const tipsContainer = document.getElementById('cleaning-tips');
+function showCleaningTips(serviceId, containerId = 'cleaning-tips') {
+    const tipsContainer = document.getElementById(containerId) || document.getElementById('cleaning-tips-' + serviceId);
     const serviceTips = cleaningTips[serviceId];
     
     if (tipsContainer && serviceTips) {
@@ -58,14 +58,23 @@ function showCleaningTips(serviceId) {
         
         tipsContainer.innerHTML = tipsHTML;
         tipsContainer.style.display = 'block';
+        tipsContainer.classList.add('show');
     }
 }
 
-// Initialisation des boutons d'astuces
+// Initialisation des astuces - affichage automatique
 document.addEventListener('DOMContentLoaded', function() {
-    const tipButtons = document.querySelectorAll('.tip-button');
+    // Afficher automatiquement les astuces pour chaque service
+    Object.keys(cleaningTips).forEach(serviceId => {
+        showCleaningTips(serviceId, 'cleaning-tips-' + serviceId);
+    });
     
+    // Garder les boutons fonctionnels pour la compatibilité
+    const tipButtons = document.querySelectorAll('.tip-button');
     tipButtons.forEach(button => {
+        // Masquer les boutons puisque les astuces sont affichées automatiquement
+        button.style.display = 'none';
+        
         button.addEventListener('click', function(e) {
             e.preventDefault();
             const serviceId = this.getAttribute('data-service');

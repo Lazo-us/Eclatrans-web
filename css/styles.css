@@ -948,11 +948,12 @@ footer::before {
   
   /* Mobile navigation styles */
   .mobile-menu-toggle {
-    display: block;
+    display: block !important;
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1000;
   }
   
   .nav-menu {
