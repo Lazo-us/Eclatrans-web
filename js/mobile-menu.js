@@ -1,17 +1,9 @@
 // Mobile menu toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.createElement('button');
-    mobileMenuToggle.classList.add('mobile-menu-toggle');
-    mobileMenuToggle.setAttribute('aria-label', 'Menu de navigation');
-    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    
-    const headerContainer = document.querySelector('.header-container');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (headerContainer && navMenu) {
-        // Insert the toggle button before the nav menu
-        headerContainer.insertBefore(mobileMenuToggle, navMenu);
-        
+    if (mobileMenuToggle && navMenu) {
         // Fermer le menu quand on clique sur un lien
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
