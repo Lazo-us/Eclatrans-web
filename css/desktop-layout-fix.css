@@ -66,9 +66,12 @@
     display: none;
   }
   
-  /* Listes à puces - étendre le texte */
-  .services ul, .services ol {
-    width: 100%;
+  /* NOUVELLE MODIFICATION: Chaque service énuméré sur une seule ligne */
+  .services ul li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
     max-width: 100%;
     padding-right: 20px;
   }
@@ -108,5 +111,12 @@
     order: -1;
     width: 100%;
     height: auto;
+  }
+  
+  /* Pas de modification pour les listes en mobile */
+  .services ul li {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
 }
