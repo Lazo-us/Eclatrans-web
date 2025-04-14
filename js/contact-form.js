@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.querySelector('.success-message');
     const errorMessage = document.querySelector('.error-message');
     
-    // Initialiser EmailJS avec la clé publique
-    emailjs.init("JnQz9ck-HqLVYVHFP");
-    
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -15,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
+            const subject = document.getElementById('subject').value || 'Demande de contact';
             const message = document.getElementById('message').value;
             
             // Validation simple
-            if (!name || !email || !subject || !message) {
+            if (!name || !email || !message) {
                 showError('Veuillez remplir tous les champs obligatoires.');
                 return;
             }
@@ -30,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
             submitButton.disabled = true;
             
-            // Configuration pour EmailJS - IDs mis à jour
-            const serviceID = 'service_3lzfpnj'; // ID du service EmailJS public
+            // Configuration pour EmailJS - IDs mis à jour et vérifiés
+            const serviceID = 'default_service'; // Utilisation du service par défaut
             const templateID = 'template_ywk2ixj'; // ID du template EmailJS public
             
             // Préparer les données pour l'envoi
@@ -41,8 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 from_phone: phone || 'Non fourni',
                 subject: subject,
                 message: message,
-                to_email: 'contact@eclatrans.fr'
+                to_email: 'contact@eclatrans.fr',
+                reply_to: email
             };
+            
+            console.log('Envoi en cours avec les paramètres:', templateParams);
             
             // Envoyer l'email via EmailJS
             emailjs.send(serviceID, templateID, templateParams)
@@ -75,30 +75,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour afficher un message de succès
     function showSuccess(message) {
         // Masquer le message d'erreur s'il est affiché
-        errorMessage.style.display = 'none';
+        if (errorMessage) errorMessage.style.display = 'none';
         
         // Afficher le message de succès
-        successMessage.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
-        successMessage.style.display = 'block';
-        
-        // Faire disparaître le message après 5 secondes
-        setTimeout(function() {
-            successMessage.style.display = 'none';
-        }, 5000);
+        if (successMessage) {
+            successMessage.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+            successMessage.style.display = 'block';
+            
+            // Faire disparaître le message après 5 secondes
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
     }
     
     // Fonction pour afficher un message d'erreur
     function showError(message) {
         // Masquer le message de succès s'il est affiché
-        successMessage.style.display = 'none';
+        if (successMessage) successMessage.style.display = 'none';
         
         // Afficher le message d'erreur
-        errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
-        errorMessage.style.display = 'block';
-        
-        // Faire disparaître le message après 5 secondes
-        setTimeout(function() {
-            errorMessage.style.display = 'none';
-        }, 5000);
+        if (errorMessage) {
+            errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
+            errorMessage.style.display = 'block';
+            
+            // Faire disparaître le message après 5 secondes
+            setTimeout(function() {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
     }
 });
