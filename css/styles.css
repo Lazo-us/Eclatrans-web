@@ -315,7 +315,7 @@ header {
 @media (min-width: 992px) {
   .service-content-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-areas: 
       "content image"
       "content image";
@@ -325,14 +325,19 @@ header {
   
   .services .service-image {
     grid-area: image;
-    height: 400px;
+    height: auto;
+    max-height: 400px;
     margin-bottom: 0;
     width: 100%;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
   }
   
   .services .service-text-content {
     grid-area: content;
     width: 100%;
+    padding-right: 1rem;
   }
   
   .services .section-title {
