@@ -52,6 +52,34 @@
             z-index: 101 !important;
         }
         
+        /* Styles spécifiques pour le bouton d'envoi */
+        .submit-btn {
+            display: block !important;
+            width: 100% !important;
+            padding: 15px !important;
+            background-color: var(--primary-color, #0056b3) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            cursor: pointer !important;
+            margin-top: 20px !important;
+            margin-bottom: 20px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color, #003d7a) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .submit-btn i {
+            margin-right: 8px !important;
+        }
+        
         /* Supprimez tout élément qui pourrait bloquer l'interaction */
         .contact-form::before,
         .contact-form::after,
