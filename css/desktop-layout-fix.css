@@ -7,7 +7,7 @@
     padding: 0 50px;
   }
   
-  /* Support pour la structure about-grid du commit 094a5b7 */
+  /* Structure about-grid du premier commit avec alternance des positions d'images */
   .about-grid {
     display: flex;
     flex-wrap: wrap;
@@ -16,12 +16,11 @@
     margin-bottom: 3rem;
   }
   
-  /* Contenu textuel étendu */
+  /* Contenu textuel */
   .services .about-content {
     flex: 1;
     min-width: 300px;
-    max-width: 100%;
-    width: 100%;
+    max-width: 65%;
     padding: 1rem 0;
   }
   
@@ -30,7 +29,6 @@
     flex: 0 0 30%;
     height: 300px;
     margin-bottom: 0;
-    width: 100%;
   }
   
   .services .service-image img {
@@ -41,24 +39,30 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
   
-  /* Section des astuces */
+  /* Alternance des positions pour les sections */
+  /* Sections impaires: image à droite */
+  .services:nth-of-type(odd) .about-grid {
+    flex-direction: row;
+  }
+  
+  /* Sections paires: image à gauche */
+  .services:nth-of-type(even) .about-grid {
+    flex-direction: row-reverse;
+  }
+  
+  /* Astuces - masquées par défaut avec bouton pour les afficher */
   .services .tips-container {
+    display: none;
     width: 100%;
     max-width: 100%;
     margin-top: 1rem;
-    margin-bottom: 1rem;
     background-color: #f8f9fa;
     padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid #3498db;
   }
   
-  /* Conserver l'affichage normal des astuces (masquées par défaut) */
-  .services .tips-container {
-    display: none;
-  }
-  
-  /* Conserver l'affichage du bouton d'astuces */
+  /* Bouton d'astuces visible */
   .services .tip-button {
     display: block;
   }
@@ -67,7 +71,7 @@
   .services ul, .services ol {
     width: 100%;
     max-width: 100%;
-    padding-right: 50px;
+    padding-right: 20px;
   }
   
   /* Titre de section aligné à gauche */

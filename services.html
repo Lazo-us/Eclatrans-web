@@ -4,22 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Services - EclaTrans</title>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <link rel="stylesheet" href="css/styles.css?v=20250414_2021">
-    <link rel="stylesheet" href="css/desktop-layout-fix.css?v=20250414_2021">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/cleaning_tips.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo"><img src="images/eclatrans_logo.webp" alt="EclaTrans Logo">EclaTrans</a>
-            <button class="mobile-menu-toggle" aria-label="Menu de navigation">
-                <i class="fas fa-bars"></i>
-            </button>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Accueil</a></li>
@@ -49,20 +41,20 @@
                 <div class="about-content">
                     <p>Nos services comprennent, mais ne se limitent pas à :</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage et entretien des chambres d'hôtel, suites, appartements et parties communes</li>
-                        <li><i class="fas fa-check-circle"></i> Entretien de tout type de sols (marbre, parquet, moquette, carrelage et revêtements spécifiques)</li>
-                        <li><i class="fas fa-check-circle"></i> Lessivage des murs</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des vitres intérieures et extérieures</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des salles de bains et des spas</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des surfaces délicates et des matériaux haut de gamme</li>
-                        <li><i class="fas fa-check-circle"></i> Gestion des déchets et recyclage respectueux de l'environnement</li>
-                        <li><i class="fas fa-check-circle"></i> Services de désinfection et de lutte contre les germes et les bactéries</li>
+                        <li>Nettoyage et entretien des chambres d'hôtel, suites, appartements et parties communes</li>
+                        <li>Entretien de tout type de sols (marbre, parquet, moquette, carrelage et revêtements spécifiques)</li>
+                        <li>Lessivage des murs</li>
+                        <li>Nettoyage des vitres intérieures et extérieures</li>
+                        <li>Nettoyage des salles de bains et des spas</li>
+                        <li>Nettoyage des surfaces délicates et des matériaux haut de gamme</li>
+                        <li>Gestion des déchets et recyclage respectueux de l'environnement</li>
+                        <li>Services de désinfection et de lutte contre les germes et les bactéries</li>
                     </ul>
-                    <button class="tip-button" data-service="hotel">Voir nos astuces d'entretien <i class="fas fa-chevron-down"></i></button>
+                    <button class="tip-button" data-service="hotel">Voir nos astuces d'entretien</button>
                     <div id="cleaning-tips" class="tips-container" style="display: none;"></div>
                 </div>
                 <div class="service-image">
-                    <img src="images/services/window_cleaning.jpeg" alt="Nettoyage pour l'Hôtellerie de Luxe">
+                    <img src="images/services/hotel_3.jpeg" alt="Nettoyage pour l'Hôtellerie de Luxe">
                 </div>
             </div>
         </div>
@@ -76,19 +68,19 @@
             </div>
             <div class="about-grid">
                 <div class="service-image">
-                    <img src="images/services/hotel_cleaning.jpeg" alt="Blanchisserie pour l'Hôtellerie de Luxe">
+                    <img src="images/services/blanchisserie_6.jpeg" alt="Blanchisserie pour l'Hôtellerie de Luxe">
                 </div>
                 <div class="about-content">
                     <p>Nos services de blanchisserie comprennent :</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Service de blanchisserie pour le linge et les textiles délicats</li>
-                        <li><i class="fas fa-check-circle"></i> Blanchisserie des rideaux et voilages</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage en profondeur des matelas</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage en profondeur des canapés et sofas</li>
-                        <li><i class="fas fa-check-circle"></i> Shampouinage des tapis et moquettes</li>
+                        <li>Service de blanchisserie pour le linge et les textiles délicats</li>
+                        <li>Blanchisserie des rideaux et voilages</li>
+                        <li>Nettoyage en profondeur des matelas</li>
+                        <li>Nettoyage en profondeur des canapés et sofas</li>
+                        <li>Shampouinage des tapis et moquettes</li>
                     </ul>
                     <p>Nous utilisons des produits de haute qualité et des techniques spécialisées pour préserver la beauté et la durabilité de vos textiles.</p>
-                    <button class="tip-button" data-service="blanchisserie">Voir nos astuces d'entretien <i class="fas fa-chevron-down"></i></button>
+                    <button class="tip-button" data-service="blanchisserie">Voir nos astuces d'entretien</button>
                     <div id="cleaning-tips-blanchisserie" class="tips-container" style="display: none;"></div>
                 </div>
             </div>
@@ -106,16 +98,16 @@
                     <p>Nos agents de livraison sont formés pour manipuler et livrer des articles délicats avec le plus grand soin et professionnalisme. Nous assurons une livraison rapide et fiable directement dans les appartements de luxe de votre établissement.</p>
                     <p>Notre service de livraison est idéal pour :</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Livraison de produits d'accueil</li>
-                        <li><i class="fas fa-check-circle"></i> Transport de linge propre</li>
-                        <li><i class="fas fa-check-circle"></i> Livraison de fournitures et d'équipements</li>
-                        <li><i class="fas fa-check-circle"></i> Services de conciergerie</li>
+                        <li>Livraison de produits d'accueil</li>
+                        <li>Transport de linge propre</li>
+                        <li>Livraison de fournitures et d'équipements</li>
+                        <li>Services de conciergerie</li>
                     </ul>
-                    <button class="tip-button" data-service="livraison">Voir nos astuces d'entretien <i class="fas fa-chevron-down"></i></button>
+                    <button class="tip-button" data-service="livraison">Voir nos astuces d'entretien</button>
                     <div id="cleaning-tips-livraison" class="tips-container" style="display: none;"></div>
                 </div>
                 <div class="service-image">
-                    <img src="images/services/laundry.jpeg" alt="Service de Livraison">
+                    <img src="images/services/livraison_5.jpeg" alt="Service de Livraison">
                 </div>
             </div>
         </div>
@@ -129,18 +121,18 @@
             </div>
             <div class="about-grid">
                 <div class="service-image">
-                    <img src="images/services/delivery.jpeg" alt="Nettoyage Professionnel de Bureaux">
+                    <img src="images/services/bureaux_5.jpeg" alt="Nettoyage Professionnel de Bureaux">
                 </div>
                 <div class="about-content">
                     <p>Nos services incluent :</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Dépoussiérage, lavage et désinfection des sols, plans horizontaux, postes de travail, objets et surfaces (tableaux, encadrements, armoires, plinthes)</li>
-                        <li><i class="fas fa-check-circle"></i> Entretien et désinfection de la cuisine et des sanitaires</li>
-                        <li><i class="fas fa-check-circle"></i> Vidage, nettoyage et sortie des poubelles</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des vitres et surfaces vitrées</li>
-                        <li><i class="fas fa-check-circle"></i> Désinfection des points de contact (poignées, interrupteurs, etc.)</li>
+                        <li>Dépoussiérage, lavage et désinfection des sols, plans horizontaux, postes de travail, objets et surfaces (tableaux, encadrements, armoires, plinthes)</li>
+                        <li>Entretien et désinfection de la cuisine et des sanitaires</li>
+                        <li>Vidage, nettoyage et sortie des poubelles</li>
+                        <li>Nettoyage des vitres et surfaces vitrées</li>
+                        <li>Désinfection des points de contact (poignées, interrupteurs, etc.)</li>
                     </ul>
-                    <button class="tip-button" data-service="bureaux">Voir nos astuces d'entretien <i class="fas fa-chevron-down"></i></button>
+                    <button class="tip-button" data-service="bureaux">Voir nos astuces d'entretien</button>
                     <div id="cleaning-tips-bureaux" class="tips-container" style="display: none;"></div>
                 </div>
             </div>
@@ -157,17 +149,17 @@
                 <div class="about-content">
                     <p>Notre équipe spécialisée utilise des techniques et des produits adaptés pour :</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Nettoyer les lustres en cristal sans les endommager</li>
-                        <li><i class="fas fa-check-circle"></i> Restaurer l'éclat des luminaires anciens</li>
-                        <li><i class="fas fa-check-circle"></i> Dépoussiérer et nettoyer les abat-jours délicats</li>
-                        <li><i class="fas fa-check-circle"></i> Entretenir les plafonniers difficiles d'accès</li>
+                        <li>Nettoyer les lustres en cristal sans les endommager</li>
+                        <li>Restaurer l'éclat des luminaires anciens</li>
+                        <li>Dépoussiérer et nettoyer les abat-jours délicats</li>
+                        <li>Entretenir les plafonniers difficiles d'accès</li>
                     </ul>
                     <p>Nous disposons de l'équipement nécessaire pour accéder en toute sécurité aux luminaires en hauteur.</p>
-                    <button class="tip-button" data-service="lustres">Voir nos astuces d'entretien <i class="fas fa-chevron-down"></i></button>
+                    <button class="tip-button" data-service="lustres">Voir nos astuces d'entretien</button>
                     <div id="cleaning-tips-lustres" class="tips-container" style="display: none;"></div>
                 </div>
                 <div class="service-image">
-                    <img src="images/services/office_cleaning.jpeg" alt="Nettoyage des Lustres et Luminaires">
+                    <img src="images/services/lustres_4.jpeg" alt="Nettoyage des Lustres et Luminaires">
                 </div>
             </div>
         </div>
@@ -181,31 +173,21 @@
             </div>
             <div class="about-grid">
                 <div class="service-image">
-                    <img src="images/services/chandelier_cleaning.jpeg" alt="Nettoyage des Vitres">
+                    <img src="images/services/vitres_2.jpeg" alt="Nettoyage des Vitres">
                 </div>
                 <div class="about-content">
                     <p>Nous garantissons que vos fenêtres, cadres et appuis de fenêtre seront laissés propres et sans traces, grâce à nos méthodes de nettoyage standard dites "à l'américaine" éprouvées.</p>
                     <p>Nos services de nettoyage de vitres comprennent :</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des vitres intérieures et extérieures</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des encadrements et appuis de fenêtres</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des baies vitrées</li>
-                        <li><i class="fas fa-check-circle"></i> Nettoyage des miroirs et surfaces réfléchissantes</li>
-                        <li><i class="fas fa-check-circle"></i> Traitement anti-traces et anti-pluie (en option)</li>
+                        <li>Nettoyage des vitres intérieures et extérieures</li>
+                        <li>Nettoyage des encadrements et appuis de fenêtres</li>
+                        <li>Nettoyage des baies vitrées</li>
+                        <li>Nettoyage des miroirs et surfaces réfléchissantes</li>
+                        <li>Traitement anti-traces et anti-pluie (en option)</li>
                     </ul>
-                    <button class="tip-button" data-service="vitres">Voir nos astuces d'entretien <i class="fas fa-chevron-down"></i></button>
+                    <button class="tip-button" data-service="vitres">Voir nos astuces d'entretien</button>
                     <div id="cleaning-tips-vitres" class="tips-container" style="display: none;"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Besoin d'un service sur mesure ?</h2>
-                <p>Contactez-nous pour discuter de vos besoins spécifiques et obtenir un devis personnalisé.</p>
-                <a href="contact.html" class="btn btn-large">Demander un devis</a>
             </div>
         </div>
     </section>
@@ -215,17 +197,12 @@
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>EclaTrans</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 7 Place des marchands laboureurs<br>95120 Ermont</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <p>7 Place des marchands laboureurs<br>95120 Ermont</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p><i class="fas fa-phone"></i> +33 6 1316 1363 / +33 1 8948 0758<br>
-                    <i class="fas fa-envelope"></i> <a href="mailto:contact@eclatrans.fr">contact@eclatrans.fr</a></p>
+                    <p>Téléphone: +33 6 1316 1363 / +33 1 8948 0758<br>
+                    Email: contact@eclatrans.fr</p>
                 </div>
                 <div class="footer-section">
                     <h3>Liens Rapides</h3>
@@ -243,7 +220,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="js/mobile-menu.js"></script>
 </body>
 </html>
