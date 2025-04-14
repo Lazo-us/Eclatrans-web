@@ -7,13 +7,19 @@
     padding: 0 50px;
   }
   
-  /* Mise en page des services avec texte étendu */
+  /* Nouvelle structure à deux lignes pour les services */
+  .services .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Première ligne : services et image */
   .service-content-wrapper {
     display: grid;
     grid-template-columns: 4fr 1fr;
     gap: 2rem;
-    align-items: center;
-    margin-bottom: 4rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
   }
   
   /* Tous les contenus ont le texte à gauche et l'image à droite */
@@ -39,10 +45,26 @@
     justify-self: end;
   }
   
-  /* Section des astuces - étendre à la largeur complète */
-  .tips-container {
+  /* Deuxième ligne : astuces */
+  .services .tips-container {
     width: 100%;
     max-width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+  }
+  
+  /* Afficher les astuces par défaut en desktop */
+  .services .tips-container {
+    display: block !important;
+  }
+  
+  /* Masquer le bouton d'astuces en desktop */
+  .services .tip-button {
+    display: none;
   }
   
   /* Listes à puces - étendre le texte */
@@ -61,5 +83,18 @@
   .services .section-title h2::after {
     left: 0;
     transform: none;
+  }
+}
+
+/* Préserver la mise en page mobile existante */
+@media (max-width: 991px) {
+  /* Conserver l'affichage normal des astuces en mobile */
+  .services .tips-container {
+    display: none;
+  }
+  
+  /* Conserver l'affichage du bouton d'astuces en mobile */
+  .services .tip-button {
+    display: block;
   }
 }
