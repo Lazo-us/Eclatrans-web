@@ -314,20 +314,25 @@ header {
 /* Desktop layout - images on the side */
 @media (min-width: 992px) {
   .service-content-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "image empty"
+      "content content";
+    gap: 2rem;
+    align-items: start;
   }
   
   .services .service-image {
-    flex: 0 0 45%;
+    grid-area: image;
     height: 400px;
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
   }
   
   .services .service-text-content {
-    flex: 1;
+    grid-area: content;
+    width: 100%;
   }
   
   .services .section-title {
@@ -337,11 +342,6 @@ header {
   .services .section-title h2::after {
     left: 0;
     transform: none;
-  }
-  
-  /* Alternate layout for even sections */
-  .services:nth-of-type(even) .service-content-wrapper {
-    flex-direction: row-reverse;
   }
 }
 
