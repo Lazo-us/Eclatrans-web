@@ -3,20 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Services - EclaTrans</title>
+    <title>EclaTrans - Nos Services de Nettoyage et Logistique pour l'Hôtellerie de Luxe</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <link rel="stylesheet" href="css/styles.css?v=20250414_2037">
-    <link rel="stylesheet" href="css/desktop-layout-fix.css?v=20250414_2037">
+    <link rel="stylesheet" href="css/styles.css?v=20250414_1653">
+    <link rel="stylesheet" href="css/desktop-layout-fix.css?v=20250414_1702">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="js/cleaning_tips.js" defer></script>
-    <script src="js/mobile-menu.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .service-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .service-section:last-child {
+            border-bottom: none;
+        }
+        .service-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .service-image-container {
+            flex: 1;
+            max-width: 40%;
+        }
+        .service-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .service-text {
+            flex: 1.5;
+        }
+        .service-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .service-text p {
+            margin-bottom: 1rem;
+        }
+        .pro-tips {
+            background-color: var(--gray-100);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--gold-accent);
+        }
+        .pro-tips h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .pro-tips h4 i {
+            margin-right: 0.5rem;
+            color: var(--gold-accent);
+        }
+        .pro-tips ul {
+            margin-left: 1.5rem;
+        }
+        .pro-tips li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Styles pour mobile */
+        @media (max-width: 768px) {
+            .service-content {
+                flex-direction: column;
+            }
+            .service-image-container {
+                order: -1; /* Place l'image au-dessus du texte sur mobile */
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .service-text {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo"><img src="images/eclatrans_logo.webp" alt="EclaTrans Logo">EclaTrans</a>
+            <button class="mobile-menu-toggle" aria-label="Menu de navigation">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Accueil</a></li>
@@ -31,186 +107,224 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Nos Services</h1>
-            <p>Découvrez notre gamme complète de services de nettoyage et de logistique pour l'hôtellerie de luxe.</p>
+            <h1>Nos Services de Nettoyage et Logistique</h1>
+            <p>Des solutions sur mesure pour l'hôtellerie de luxe et les espaces professionnels haut de gamme.</p>
         </div>
     </section>
 
-    <section class="services" id="hotel">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nettoyage pour l'Hôtellerie de Luxe</h2>
-                <p>EclaTrans propose une gamme complète de services de nettoyage adaptés à votre établissement haut de gamme.</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p>Nos services comprennent, mais ne se limitent pas à :</p>
+    <section class="container">
+        <div class="section-title">
+            <h2>Services Professionnels EclaTrans</h2>
+            <p>Chez EclaTrans, nous comprenons l'importance de maintenir des normes élevées de propreté et de présentation dans votre établissement. Nos services sont conçus pour répondre aux exigences spécifiques de l'industrie de l'hôtellerie de luxe.</p>
+        </div>
+
+        <!-- Service 1: Nettoyage pour l'Hôtellerie de Luxe -->
+        <div class="service-section">
+            <h2>Nettoyage pour l'Hôtellerie de Luxe</h2>
+            <div class="service-content">
+                <div class="service-image-container">
+                    <img src="images/services/hotel_cleaning.jpeg" alt="Nettoyage hôtelier de luxe">
+                </div>
+                <div class="service-text">
+                    <h3>Excellence et raffinement pour vos espaces</h3>
+                    <p>EclaTrans propose une gamme complète de services de nettoyage adaptés à votre établissement haut de gamme. Notre équipe expérimentée est formée aux standards les plus exigeants de l'hôtellerie de luxe.</p>
+                    <p>Nos services comprennent :</p>
                     <ul>
-                        <li>Nettoyage et entretien des chambres d'hôtel, suites, appartements et parties communes</li>
-                        <li>Entretien de tout type de sols (marbre, parquet, moquette, carrelage et revêtements spécifiques)</li>
-                        <li>Lessivage des murs</li>
-                        <li>Nettoyage des vitres intérieures et extérieures</li>
-                        <li>Nettoyage des salles de bains et des spas</li>
-                        <li>Nettoyage des surfaces délicates et des matériaux haut de gamme</li>
+                        <li>Nettoyage et entretien méticuleux des chambres d'hôtel, suites, appartements et parties communes</li>
+                        <li>Entretien spécialisé de tout type de sols (aspiration, lavage, décapage, lustrage, cristallisation)</li>
+                        <li>Nettoyage impeccable des salles de bains et des espaces spa</li>
+                        <li>Traitement délicat des surfaces précieuses et des matériaux haut de gamme</li>
+                        <li>Lessivage professionnel des murs</li>
+                        <li>Services de désinfection conformes aux normes sanitaires les plus strictes</li>
                         <li>Gestion des déchets et recyclage respectueux de l'environnement</li>
-                        <li>Services de désinfection et de lutte contre les germes et les bactéries</li>
                     </ul>
-                    <button class="tip-button" data-service="hotel">Voir nos astuces d'entretien</button>
-                    <div id="cleaning-tips" class="tips-container" style="display: none;"></div>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/hotel_3.jpeg" alt="Nettoyage pour l'Hôtellerie de Luxe">
+                    
+                    <div class="pro-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Astuces professionnelles</h4>
+                        <ul>
+                            <li>Pour préserver l'éclat des surfaces en marbre, évitez les produits acides et privilégiez des nettoyants au pH neutre spécialement formulés pour la pierre naturelle.</li>
+                            <li>Le nettoyage à la vapeur est idéal pour les textiles délicats et les moquettes de luxe, éliminant efficacement les allergènes sans produits chimiques agressifs.</li>
+                            <li>Pour les boiseries précieuses, utilisez des produits à base d'huile de cire d'abeille qui nourrissent le bois tout en préservant sa patine naturelle.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="services" id="blanchisserie">
-        <div class="container">
-            <div class="section-title">
-                <h2>Blanchisserie pour l'Hôtellerie de luxe</h2>
-                <p>Notre service de blanchisserie répond aux exigences les plus élevées de l'hôtellerie de luxe.</p>
-            </div>
-            <div class="about-grid">
-                <div class="service-image">
-                    <img src="images/services/blanchisserie_6.jpeg" alt="Blanchisserie pour l'Hôtellerie de Luxe">
+        <!-- Service 2: Blanchisserie pour l'Hôtellerie de Luxe -->
+        <div class="service-section">
+            <h2>Blanchisserie pour l'Hôtellerie de Luxe</h2>
+            <div class="service-content">
+                <div class="service-image-container">
+                    <img src="images/services/laundry.jpeg" alt="Service de blanchisserie de luxe">
                 </div>
-                <div class="about-content">
+                <div class="service-text">
+                    <h3>Traitement expert de vos textiles précieux</h3>
+                    <p>Notre service de blanchisserie est spécialement conçu pour traiter avec soin les textiles délicats et de haute qualité que l'on trouve dans les établissements de luxe. Nous utilisons des techniques et des produits adaptés à chaque type de tissu pour garantir des résultats impeccables.</p>
                     <p>Nos services de blanchisserie comprennent :</p>
                     <ul>
-                        <li>Service de blanchisserie pour le linge et les textiles délicats</li>
-                        <li>Blanchisserie des rideaux et voilages</li>
-                        <li>Nettoyage en profondeur des matelas</li>
+                        <li>Traitement personnalisé du linge et des textiles délicats</li>
+                        <li>Nettoyage spécialisé des rideaux et voilages</li>
                         <li>Nettoyage en profondeur des canapés et sofas</li>
-                        <li>Shampouinage des tapis et moquettes</li>
+                        <li>Traitement hygiénique des matelas</li>
+                        <li>Shampouinage professionnel des tapis et moquettes</li>
                     </ul>
-                    <p>Nous utilisons des produits de haute qualité et des techniques spécialisées pour préserver la beauté et la durabilité de vos textiles.</p>
-                    <button class="tip-button" data-service="blanchisserie">Voir nos astuces d'entretien</button>
-                    <div id="cleaning-tips-blanchisserie" class="tips-container" style="display: none;"></div>
+                    
+                    <div class="pro-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Astuces professionnelles</h4>
+                        <ul>
+                            <li>Pour les tissus délicats comme la soie ou le cachemire, utilisez de l'eau froide et des détergents doux spécifiquement formulés pour textiles de luxe.</li>
+                            <li>Le nettoyage à sec professionnel est recommandé pour les rideaux et voilages afin de préserver leur tenue et leur couleur.</li>
+                            <li>Pour les taches tenaces sur les textiles blancs, un mélange de peroxyde d'hydrogène et de bicarbonate de soude peut être plus efficace et moins agressif que l'eau de Javel.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Service de Livraison -->
+        <div class="service-section">
+            <h2>Service de Livraison</h2>
+            <div class="service-content">
+                <div class="service-image-container">
+                    <img src="images/services/delivery.jpeg" alt="Service de livraison">
+                </div>
+                <div class="service-text">
+                    <h3>Logistique discrète et efficace</h3>
+                    <p>En complément de nos services de nettoyage, nous proposons un service de livraison haut de gamme pour répondre à vos besoins logistiques. Nos agents de livraison sont formés pour manipuler et livrer des articles délicats avec le plus grand soin et professionnalisme.</p>
+                    <p>Notre service de livraison se distingue par :</p>
+                    <ul>
+                        <li>Une livraison rapide et fiable directement dans les appartements de luxe</li>
+                        <li>Une manipulation experte des articles fragiles et de valeur</li>
+                        <li>Une discrétion absolue et un respect de la confidentialité</li>
+                        <li>Une flexibilité horaire pour s'adapter à vos contraintes</li>
+                        <li>Un suivi en temps réel des livraisons</li>
+                    </ul>
+                    
+                    <div class="pro-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Astuces professionnelles</h4>
+                        <ul>
+                            <li>Pour le transport d'objets fragiles, utilisez des matériaux d'emballage neutres en pH qui n'endommageront pas les surfaces délicates.</li>
+                            <li>Établissez un système de notification discrète pour informer les clients de l'arrivée de leurs colis sans perturber leur séjour.</li>
+                            <li>Pour les livraisons de produits alimentaires, maintenez une chaîne du froid irréprochable avec des conteneurs isothermes professionnels.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Nettoyage Professionnel de Bureaux -->
+        <div class="service-section">
+            <h2>Nettoyage Professionnel de Bureaux</h2>
+            <div class="service-content">
+                <div class="service-image-container">
+                    <img src="images/services/office_cleaning.jpeg" alt="Nettoyage de bureaux">
+                </div>
+                <div class="service-text">
+                    <h3>Environnement de travail impeccable</h3>
+                    <p>Chez EclaTrans, nous créons un environnement de travail positif et accueillant grâce à nos services de nettoyage de bureaux haut de gamme. Un espace de travail propre et bien entretenu favorise la productivité et reflète le professionnalisme de votre entreprise.</p>
+                    <p>Nos services de nettoyage de bureaux incluent :</p>
+                    <ul>
+                        <li>Dépoussiérage, lavage et désinfection des sols, plans horizontaux et postes de travail</li>
+                        <li>Nettoyage minutieux des objets et surfaces (tableaux, encadrements, armoires, plinthes)</li>
+                        <li>Entretien et désinfection approfondie de la cuisine et des sanitaires</li>
+                        <li>Vidage, nettoyage et gestion responsable des poubelles</li>
+                        <li>Traitement spécifique des équipements électroniques et informatiques</li>
+                    </ul>
+                    
+                    <div class="pro-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Astuces professionnelles</h4>
+                        <ul>
+                            <li>Pour les équipements électroniques, utilisez des lingettes antistatiques spéciales qui éliminent la poussière sans laisser de résidus et sans endommager les composants.</li>
+                            <li>Dans les espaces de bureau partagés, privilégiez la désinfection régulière des points de contact (poignées, interrupteurs, téléphones) avec des produits virucides non agressifs.</li>
+                            <li>Pour maintenir la qualité de l'air intérieur, intégrez le nettoyage des systèmes de ventilation et des filtres à votre programme d'entretien régulier.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5: Nettoyage des Lustres et Luminaires -->
+        <div class="service-section">
+            <h2>Nettoyage des Lustres et Luminaires</h2>
+            <div class="service-content">
+                <div class="service-image-container">
+                    <img src="images/services/chandelier_cleaning.jpeg" alt="Nettoyage de lustres">
+                </div>
+                <div class="service-text">
+                    <h3>Éclat retrouvé pour vos pièces maîtresses</h3>
+                    <p>Nos services spécialisés de nettoyage de lustres et luminaires redonnent tout leur éclat à ces éléments décoratifs essentiels. Nous utilisons des techniques adaptées à chaque type de luminaire, des lustres à pampilles en cristal aux lampes design les plus délicates.</p>
+                    <p>Notre expertise en nettoyage de luminaires comprend :</p>
+                    <ul>
+                        <li>Nettoyage méticuleux des lustres à pampilles en cristal</li>
+                        <li>Entretien délicat des plafonniers et appliques</li>
+                        <li>Nettoyage spécialisé des lampes et abat-jours précieux</li>
+                        <li>Traitement adapté aux différents matériaux (cristal, verre, métal, tissu)</li>
+                        <li>Démontage et remontage expert des pièces complexes</li>
+                    </ul>
+                    
+                    <div class="pro-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Astuces professionnelles</h4>
+                        <ul>
+                            <li>Pour les lustres en cristal, un mélange d'eau distillée et d'alcool isopropylique (4:1) permet un nettoyage sans traces qui préserve l'éclat du cristal.</li>
+                            <li>Photographiez les lustres complexes avant démontage pour faciliter le remontage à l'identique.</li>
+                            <li>Pour les abat-jours en tissu délicat, utilisez un aspirateur à brosse douce à basse puissance plutôt que des produits liquides qui pourraient tacher ou déformer le tissu.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 6: Nettoyage des Vitres -->
+        <div class="service-section">
+            <h2>Nettoyage des Vitres</h2>
+            <div class="service-content">
+                <div class="service-image-container">
+                    <img src="images/services/window_cleaning.jpeg" alt="Nettoyage de vitres">
+                </div>
+                <div class="service-text">
+                    <h3>Transparence parfaite et vue imprenable</h3>
+                    <p>Nous proposons des programmes d'entretien réguliers pour les fenêtres intérieures et extérieures de vos bâtiments. Notre équipe utilise des méthodes de nettoyage "à l'américaine" éprouvées pour garantir des vitres impeccables sans traces ni résidus.</p>
+                    <p>Notre service de nettoyage de vitres comprend :</p>
+                    <ul>
+                        <li>Nettoyage professionnel des vitres intérieures et extérieures</li>
+                        <li>Traitement soigneux des cadres et appuis de fenêtre</li>
+                        <li>Nettoyage des baies vitrées et verrières</li>
+                        <li>Intervention en hauteur avec équipement spécialisé</li>
+                        <li>Programmes d'entretien personnalisés selon vos besoins</li>
+                    </ul>
+                    
+                    <div class="pro-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Astuces professionnelles</h4>
+                        <ul>
+                            <li>Pour un nettoyage sans traces, utilisez une raclette professionnelle en caoutchouc de qualité et essuyez la lame après chaque passage.</li>
+                            <li>Évitez de nettoyer les vitres en plein soleil, car le produit sèche trop rapidement et laisse des traces.</li>
+                            <li>Pour les vitres très sales, commencez par un nettoyage à l'eau savonneuse avec quelques gouttes de vinaigre blanc avant d'utiliser un produit pour vitres.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="services" id="livraison">
+    <section class="cta">
         <div class="container">
-            <div class="section-title">
-                <h2>Service de Livraison</h2>
-                <p>En plus de nos services de nettoyage, nous proposons également un service de livraison pour répondre à vos besoins logistiques.</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p>Nos agents de livraison sont formés pour manipuler et livrer des articles délicats avec le plus grand soin et professionnalisme. Nous assurons une livraison rapide et fiable directement dans les appartements de luxe de votre établissement.</p>
-                    <p>Notre service de livraison est idéal pour :</p>
-                    <ul>
-                        <li>Livraison de produits d'accueil</li>
-                        <li>Transport de linge propre</li>
-                        <li>Livraison de fournitures et d'équipements</li>
-                        <li>Services de conciergerie</li>
-                    </ul>
-                    <button class="tip-button" data-service="livraison">Voir nos astuces d'entretien</button>
-                    <div id="cleaning-tips-livraison" class="tips-container" style="display: none;"></div>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/livraison_5.jpeg" alt="Service de Livraison">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="bureaux">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nettoyage professionnel de bureaux</h2>
-                <p>Chez EclaTrans, nous répondons à tous vos besoins de nettoyage de bureaux en créant un environnement de travail positif et accueillant.</p>
-            </div>
-            <div class="about-grid">
-                <div class="service-image">
-                    <img src="images/services/bureaux_5.jpeg" alt="Nettoyage Professionnel de Bureaux">
-                </div>
-                <div class="about-content">
-                    <p>Nos services incluent :</p>
-                    <ul>
-                        <li>Dépoussiérage, lavage et désinfection des sols, plans horizontaux, postes de travail, objets et surfaces (tableaux, encadrements, armoires, plinthes)</li>
-                        <li>Entretien et désinfection de la cuisine et des sanitaires</li>
-                        <li>Vidage, nettoyage et sortie des poubelles</li>
-                        <li>Nettoyage des vitres et surfaces vitrées</li>
-                        <li>Désinfection des points de contact (poignées, interrupteurs, etc.)</li>
-                    </ul>
-                    <button class="tip-button" data-service="bureaux">Voir nos astuces d'entretien</button>
-                    <div id="cleaning-tips-bureaux" class="tips-container" style="display: none;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="lustres">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nettoyage des lustres et autres luminaires</h2>
-                <p>Nous proposons des services de nettoyage professionnel pour les lustres à pampilles en cristal, les plafonniers, les lampes délicates et les abat-jours.</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p>Notre équipe spécialisée utilise des techniques et des produits adaptés pour :</p>
-                    <ul>
-                        <li>Nettoyer les lustres en cristal sans les endommager</li>
-                        <li>Restaurer l'éclat des luminaires anciens</li>
-                        <li>Dépoussiérer et nettoyer les abat-jours délicats</li>
-                        <li>Entretenir les plafonniers difficiles d'accès</li>
-                    </ul>
-                    <p>Nous disposons de l'équipement nécessaire pour accéder en toute sécurité aux luminaires en hauteur.</p>
-                    <button class="tip-button" data-service="lustres">Voir nos astuces d'entretien</button>
-                    <div id="cleaning-tips-lustres" class="tips-container" style="display: none;"></div>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/lustres_4.jpeg" alt="Nettoyage des Lustres et Luminaires">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="vitres">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nettoyage des vitres intérieures et extérieures</h2>
-                <p>Nous proposons des programmes d'entretien réguliers pour les fenêtres intérieures et extérieures de vos bâtiments, appartement ou bureau.</p>
-            </div>
-            <div class="about-grid">
-                <div class="service-image">
-                    <img src="images/services/vitres_2.jpeg" alt="Nettoyage des Vitres">
-                </div>
-                <div class="about-content">
-                    <p>Nous garantissons que vos fenêtres, cadres et appuis de fenêtre seront laissés propres et sans traces, grâce à nos méthodes de nettoyage standard dites "à l'américaine" éprouvées.</p>
-                    <p>Nos services de nettoyage de vitres comprennent :</p>
-                    <ul>
-                        <li>Nettoyage des vitres intérieures et extérieures</li>
-                        <li>Nettoyage des encadrements et appuis de fenêtres</li>
-                        <li>Nettoyage des baies vitrées</li>
-                        <li>Nettoyage des miroirs et surfaces réfléchissantes</li>
-                        <li>Traitement anti-traces et anti-pluie (en option)</li>
-                    </ul>
-                    <button class="tip-button" data-service="vitres">Voir nos astuces d'entretien</button>
-                    <div id="cleaning-tips-vitres" class="tips-container" style="display: none;"></div>
-                </div>
-            </div>
+            <h2>Prêt à améliorer la qualité de vos services?</h2>
+            <p>Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques et obtenir une proposition personnalisée.</p>
+            <a href="contact.html" class="btn">Demander un devis</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/eclatrans_logo.webp" alt="EclaTrans Logo">
                     <h3>EclaTrans</h3>
-                    <p>7 Place des marchands laboureurs<br>95120 Ermont</p>
+                    <p>Services de Nettoyage et Logistique pour l'Hôtellerie de Luxe</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Téléphone: +33 6 1316 1363 / +33 1 8948 0758<br>
-                    Email: contact@eclatrans.fr</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="services.html">Nos Services</a></li>
@@ -219,11 +333,20 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
+                <div class="footer-contact">
+                    <h4>Contactez-nous</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 7 Place des marchands laboureurs, 95120 Ermont</p>
+                    <p><i class="fas fa-phone"></i> +33 6 1316 1363 / +33 1 8948 0758</p>
+                    <p><i class="fas fa-envelope"></i> contact@eclatrans.fr</p>
+                    <p><i class="fas fa-building"></i> SIREN: 928967090</p>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 EclaTrans. Tous droits réservés. SIREN: 928967090</p>
+                <p>&copy; 2025 EclaTrans. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
