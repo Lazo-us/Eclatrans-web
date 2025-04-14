@@ -317,8 +317,8 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-      "image empty"
-      "content content";
+      "content image"
+      "content image";
     gap: 2rem;
     align-items: start;
   }
@@ -326,7 +326,7 @@ header {
   .services .service-image {
     grid-area: image;
     height: 400px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     width: 100%;
   }
   
