@@ -1,140 +1,79 @@
-// Script pour améliorer le formulaire de contact
+// Script pour gérer le formulaire de contact avec EmailJS
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialisation d'EmailJS
+    emailjs.init("JnQz9ck-HqLVYVHFP");
+    
+    // Récupération du formulaire
     const contactForm = document.getElementById('contactForm');
     
+    // Récupération des éléments de notification
+    const successMessage = document.querySelector('.success-message');
+    const errorMessage = document.querySelector('.error-message');
+    
     if (contactForm) {
-        // Créer l'élément de notification toast
-        const toastContainer = document.createElement('div');
-        toastContainer.className = 'toast-notification';
-        toastContainer.innerHTML = `
-            <i class="fas fa-check-circle"></i>
-            <span class="toast-message"></span>
-            <span class="close-toast"><i class="fas fa-times"></i></span>
-        `;
-        document.body.appendChild(toastContainer);
-        
-        const toastMessage = toastContainer.querySelector('.toast-message');
-        const closeToast = toastContainer.querySelector('.close-toast');
-        
-        // Fermer le toast en cliquant sur le bouton de fermeture
-        closeToast.addEventListener('click', function() {
-            toastContainer.classList.remove('show');
-        });
-        
-        // Validation côté client
-        function validateForm() {
-            let isValid = true;
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const subject = document.getElementById('subject');
-            const message = document.getElementById('message');
-            
-            // Réinitialiser les styles d'erreur
-            [name, email, subject, message].forEach(field => {
-                field.style.borderColor = '';
-            });
-            
-            // Valider le nom
-            if (!name.value.trim()) {
-                name.style.borderColor = 'var(--error-color)';
-                isValid = false;
-            }
-            
-            // Valider l'email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
-                email.style.borderColor = 'var(--error-color)';
-                isValid = false;
-            }
-            
-            // Valider le sujet
-            if (!subject.value.trim()) {
-                subject.style.borderColor = 'var(--error-color)';
-                isValid = false;
-            }
-            
-            // Valider le message
-            if (!message.value.trim()) {
-                message.style.borderColor = 'var(--error-color)';
-                isValid = false;
-            }
-            
-            return isValid;
-        }
-        
-        // Afficher le toast de notification
-        function showToast(message, type) {
-            toastMessage.textContent = message;
-            toastContainer.className = 'toast-notification ' + type + ' show';
-            
-            // Masquer le toast après 5 secondes
-            setTimeout(function() {
-                toastContainer.classList.remove('show');
-            }, 5000);
-        }
-        
-        // Gérer la soumission du formulaire
+        // Ajout d'un écouteur d'événement pour la soumission du formulaire
         contactForm.addEventListener('submit', function(event) {
+            // Empêcher le comportement par défaut du formulaire
             event.preventDefault();
             
-            // Valider le formulaire
-            if (!validateForm()) {
-                showToast('Veuillez remplir correctement tous les champs obligatoires.', 'error');
-                return;
-            }
-            
-            // Récupérer les valeurs du formulaire
+            // Récupération des valeurs du formulaire
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value || 'Demande de contact';
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Afficher un indicateur de chargement
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-            submitButton.disabled = true;
-            
-            // Configuration pour EmailJS
-            const serviceID = 'default_service';
-            const templateID = 'template_ywk2ixj';
-            
-            // Préparer les données pour l'envoi
+            // Préparation des paramètres pour EmailJS
             const templateParams = {
                 from_name: name,
                 from_email: email,
-                from_phone: phone || 'Non fourni',
+                from_phone: phone,
                 subject: subject,
                 message: message,
-                to_email: 'contact@eclatrans.fr',
-                reply_to: email
+                to_email: 'contact@eclatrans.fr'
             };
             
-            // Envoyer l'email via EmailJS
-            emailjs.send(serviceID, templateID, templateParams)
+            // Affichage d'un message de chargement
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            // Envoi de l'email via EmailJS
+            emailjs.send('default_service', 'template_contact', templateParams)
                 .then(function(response) {
+                    // Succès
                     console.log('SUCCESS!', response.status, response.text);
                     
-                    // Réinitialiser le formulaire
+                    // Affichage du message de succès
+                    successMessage.textContent = 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.';
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    
+                    // Réinitialisation du formulaire
                     contactForm.reset();
                     
-                    // Restaurer le bouton
-                    submitButton.innerHTML = originalButtonText;
-                    submitButton.disabled = false;
+                    // Réinitialisation du bouton
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
                     
-                    // Afficher un message de succès
-                    showToast('Votre message a été envoyé avec succès! Nous vous contacterons bientôt.', 'success');
+                    // Masquer le message de succès après 5 secondes
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000);
                 })
                 .catch(function(error) {
-                    console.error('FAILED...', error);
+                    // Erreur
+                    console.log('FAILED...', error);
                     
-                    // Restaurer le bouton
-                    submitButton.innerHTML = originalButtonText;
-                    submitButton.disabled = false;
+                    // Affichage du message d'erreur
+                    errorMessage.textContent = 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer ou nous contacter directement par téléphone.';
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
                     
-                    // Afficher un message d'erreur
-                    showToast('Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer.', 'error');
+                    // Réinitialisation du bouton
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
                 });
         });
     }
