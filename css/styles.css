@@ -312,20 +312,22 @@ header {
   background: linear-gradient(to right, var(--primary-color), var(--gold-accent));
 }
 
-/* Desktop layout - alternating left/right layout */
+/* Desktop layout - text on left, image on right */
 @media (min-width: 992px) {
   .service-content-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     gap: 2rem;
     align-items: center;
     margin-bottom: 4rem;
+    background-color: #f0f8ff; /* Light blue background to make changes obvious */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
   
-  .service-content-wrapper:nth-child(even) {
-    grid-template-areas: "content image";
-  }
-  
+  /* All content wrappers have same layout - text left, image right */
+  .service-content-wrapper:nth-child(even),
   .service-content-wrapper:nth-child(odd) {
     grid-template-areas: "content image";
   }
@@ -334,6 +336,8 @@ header {
     grid-area: content;
     padding: 2rem;
     max-width: 100%;
+    border-left: 5px solid var(--primary-color); /* Obvious left border */
+    padding-left: 2rem;
   }
   
   .services .service-image {
@@ -341,6 +345,8 @@ header {
     height: 400px;
     margin-bottom: 0;
     width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
   
   .services .section-title {
