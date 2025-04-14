@@ -1,6 +1,8 @@
 // Fonctionnalité d'envoi d'email pour le formulaire de contact
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.querySelector('.success-message');
+    const errorMessage = document.querySelector('.error-message');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
@@ -15,97 +17,86 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Validation simple
             if (!name || !email || !subject || !message) {
-                showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
+                showError('Veuillez remplir tous les champs obligatoires.');
                 return;
             }
             
-            // Simuler l'envoi d'email (dans un environnement réel, ceci serait remplacé par un appel à un service d'email)
             // Afficher un indicateur de chargement
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
-            submitButton.innerHTML = 'Envoi en cours...';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
             submitButton.disabled = true;
             
-            // Simuler un délai d'envoi
-            setTimeout(function() {
-                // En production, remplacer cette partie par un appel à un service d'email comme EmailJS, Formspree, ou un backend personnalisé
-                
-                // Préparer les données pour l'envoi (exemple pour un backend)
-                const formData = {
-                    name: name,
-                    email: email,
-                    phone: phone || 'Non fourni',
-                    subject: subject,
-                    message: message,
-                    timestamp: new Date().toISOString()
-                };
-                
-                // Log des données (à des fins de démonstration)
-                console.log('Données du formulaire à envoyer:', formData);
-                
-                // Réinitialiser le formulaire
-                contactForm.reset();
-                
-                // Restaurer le bouton
-                submitButton.innerHTML = originalButtonText;
-                submitButton.disabled = false;
-                
-                // Afficher un message de succès
-                showNotification('Votre message a été envoyé avec succès! Nous vous contacterons bientôt.', 'success');
-                
-                // Dans un environnement réel, vous utiliseriez un code comme celui-ci:
-                /*
-                fetch('/api/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                })
-                .then(response => response.json())
-                .then(data => {
+            // Configuration pour EmailJS
+            const serviceID = 'default_service'; // Remplacer par votre Service ID EmailJS
+            const templateID = 'template_eclatrans'; // Remplacer par votre Template ID EmailJS
+            const userID = 'user_eclatrans'; // Remplacer par votre User ID EmailJS
+            
+            // Préparer les données pour l'envoi
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                from_phone: phone || 'Non fourni',
+                subject: subject,
+                message: message,
+                to_email: 'contact@eclatrans.fr'
+            };
+            
+            // Envoyer l'email via EmailJS
+            emailjs.send(serviceID, templateID, templateParams, userID)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Réinitialiser le formulaire
+                    contactForm.reset();
+                    
+                    // Restaurer le bouton
                     submitButton.innerHTML = originalButtonText;
                     submitButton.disabled = false;
                     
-                    if (data.success) {
-                        contactForm.reset();
-                        showNotification('Votre message a été envoyé avec succès! Nous vous contacterons bientôt.', 'success');
-                    } else {
-                        showNotification('Une erreur est survenue. Veuillez réessayer plus tard.', 'error');
-                    }
+                    // Afficher un message de succès
+                    showSuccess('Votre message a été envoyé avec succès! Nous vous contacterons bientôt.');
                 })
-                .catch(error => {
-                    console.error('Erreur:', error);
+                .catch(function(error) {
+                    console.error('FAILED...', error);
+                    
+                    // Restaurer le bouton
                     submitButton.innerHTML = originalButtonText;
                     submitButton.disabled = false;
-                    showNotification('Une erreur est survenue. Veuillez réessayer plus tard.', 'error');
+                    
+                    // Afficher un message d'erreur
+                    showError('Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer ou nous contacter directement par téléphone.');
                 });
-                */
-                
-            }, 1500);
         });
     }
     
-    // Fonction pour afficher les notifications
-    function showNotification(message, type) {
-        // Créer l'élément de notification s'il n'existe pas déjà
-        let notification = document.querySelector('.form-notification');
-        if (!notification) {
-            notification = document.createElement('div');
-            notification.className = 'form-notification';
-            contactForm.appendChild(notification);
-        }
+    // Fonction pour afficher un message de succès
+    function showSuccess(message) {
+        // Masquer le message d'erreur s'il est affiché
+        errorMessage.style.display = 'none';
         
-        // Définir le message et la classe de type
-        notification.textContent = message;
-        notification.className = 'form-notification ' + type;
+        // Afficher le message de succès
+        successMessage.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+        successMessage.style.display = 'block';
         
-        // Afficher la notification
-        notification.style.display = 'block';
-        
-        // Faire disparaître la notification après 5 secondes
+        // Faire disparaître le message après 5 secondes
         setTimeout(function() {
-            notification.style.display = 'none';
+            successMessage.style.display = 'none';
+        }, 5000);
+    }
+    
+    // Fonction pour afficher un message d'erreur
+    function showError(message) {
+        // Masquer le message de succès s'il est affiché
+        successMessage.style.display = 'none';
+        
+        // Afficher le message d'erreur
+        errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
+        errorMessage.style.display = 'block';
+        
+        // Faire disparaître le message après 5 secondes
+        setTimeout(function() {
+            errorMessage.style.display = 'none';
         }, 5000);
     }
 });
