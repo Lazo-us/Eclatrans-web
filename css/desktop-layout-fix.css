@@ -18,18 +18,17 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 250px; /* Espace pour l'image en haut */
     margin-bottom: 3rem;
   }
   
-  /* Image positionnée en haut à droite */
+  /* Image positionnée au-dessus du titre */
   .services .service-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 230px;
-    margin-bottom: 0;
+    position: relative;
+    width: 300px; /* Conserver les dimensions actuelles */
+    height: 230px; /* Conserver les dimensions actuelles */
+    margin-bottom: 1.5rem;
+    align-self: flex-end;
+    order: -1; /* Place l'image avant tous les autres éléments */
   }
   
   .services .service-image img {
@@ -66,7 +65,7 @@
     display: none;
   }
   
-  /* NOUVELLE MODIFICATION: Chaque service énuméré sur une seule ligne */
+  /* Chaque service énuméré sur une seule ligne */
   .services ul li {
     white-space: nowrap;
     overflow: hidden;
