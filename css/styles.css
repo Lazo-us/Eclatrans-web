@@ -259,6 +259,11 @@ header {
   padding: 0 20px;
 }
 
+/* Service content wrapper */
+.service-content-wrapper {
+  width: 100%;
+}
+
 /* Service image styling */
 .services .service-image {
   width: 100%;
@@ -280,42 +285,80 @@ header {
   transform: scale(1.05);
 }
 
+/* Section title styling */
+.services .section-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.services .section-title h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+  display: inline-block;
+}
+
+.services .section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--gold-accent));
+}
+
 /* Desktop layout - images on the side */
 @media (min-width: 992px) {
-  .services .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-      "image content";
+  .service-content-wrapper {
+    display: flex;
+    flex-direction: row;
     gap: 3rem;
-    align-items: start;
+    align-items: flex-start;
   }
   
   .services .service-image {
-    grid-area: image;
+    flex: 0 0 45%;
     height: 400px;
     margin-bottom: 0;
   }
   
-  .services .section-title,
-  .services .about-grid {
-    grid-area: content;
+  .services .service-text-content {
+    flex: 1;
+  }
+  
+  .services .section-title {
+    text-align: left;
+  }
+  
+  .services .section-title h2::after {
+    left: 0;
+    transform: none;
   }
   
   /* Alternate layout for even sections */
-  .services:nth-child(even) .container {
-    grid-template-areas: 
-      "content image";
+  .services:nth-of-type(even) .service-content-wrapper {
+    flex-direction: row-reverse;
   }
 }
 
 /* Mobile layout - images before titles (default) */
 @media (max-width: 991px) {
-  .services .container {
+  .service-content-wrapper {
     display: block;
   }
   
   .services .service-image {
+    margin-bottom: 2rem;
+  }
+  
+  .services .section-title {
+    text-align: center;
+  }
+}
     margin-bottom: 2rem;
   }
 }
