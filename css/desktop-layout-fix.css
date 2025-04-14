@@ -1,0 +1,65 @@
+/* desktop-layout-fix.css - Fichier CSS spécifique pour corriger la mise en page desktop */
+
+@media (min-width: 992px) {
+  /* Conteneur principal des services - étendre à 100% de la largeur */
+  .container {
+    max-width: 100%;
+    padding: 0 50px;
+  }
+  
+  /* Mise en page des services avec texte étendu */
+  .service-content-wrapper {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+  
+  /* Tous les contenus ont le texte à gauche et l'image à droite */
+  .service-content-wrapper:nth-child(even),
+  .service-content-wrapper:nth-child(odd) {
+    grid-template-areas: "content image";
+  }
+  
+  /* Contenu textuel étendu jusqu'à la ligne rouge */
+  .services .service-text-content {
+    grid-area: content;
+    padding: 1rem 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  /* Image alignée à droite */
+  .services .service-image {
+    grid-area: image;
+    height: 300px;
+    margin-bottom: 0;
+    width: 100%;
+    justify-self: end;
+  }
+  
+  /* Section des astuces - étendre à la largeur complète */
+  .tips-container {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Listes à puces - étendre le texte */
+  .services ul, .services ol {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 50px;
+  }
+  
+  /* Titre de section aligné à gauche */
+  .services .section-title {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .services .section-title h2::after {
+    left: 0;
+    transform: none;
+  }
+}
