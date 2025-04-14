@@ -361,13 +361,20 @@ header {
   
   .services .service-image {
     margin-bottom: 2rem;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .services .service-image img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
   }
   
   .services .section-title {
     text-align: center;
-  }
-}
-    margin-bottom: 2rem;
   }
 }
 
