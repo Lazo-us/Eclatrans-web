@@ -1,121 +1,222 @@
-/* desktop-layout-fix.css - Fichier CSS spécifique pour la nouvelle mise en page desktop */
-
-@media (min-width: 992px) {
-  /* Conteneur principal des services - étendre à 100% de la largeur */
-  .container {
-    max-width: 100%;
-    padding: 0 50px;
-  }
-  
-  /* Nouvelle structure pour les services en desktop */
-  .services .container {
-    position: relative;
-    padding-top: 20px;
-  }
-  
-  /* Structure about-grid modifiée */
+/* Styles spécifiques pour la mise en page desktop */
+@media screen and (min-width: 768px) {
+  /* Styles pour la section services */
   .about-grid {
     display: flex;
     flex-direction: column;
-    position: relative;
     margin-bottom: 3rem;
-  }
-  
-  /* Image positionnée au-dessus du titre */
-  .services .service-image {
     position: relative;
-    width: 300px; /* Conserver les dimensions actuelles */
-    height: 230px; /* Conserver les dimensions actuelles */
-    margin-bottom: 1.5rem;
-    align-self: flex-end;
-    order: -1; /* Place l'image avant tous les autres éléments */
   }
-  
-  .services .service-image img {
-    width: 100%;
-    height: 100%;
+
+  /* Placer l'image au-dessus du titre */
+  .about-grid img {
+    width: 300px;
+    height: 230px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    align-self: flex-end;
+    order: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
-  
-  /* Grand conteneur pour le texte */
-  .services .about-content {
-    flex: 1;
-    width: 100%;
-    max-width: 100%;
-    padding: 1rem 0;
-  }
-  
-  /* Astuces affichées par défaut en dessous de chaque service */
-  .services .tips-container {
-    display: block !important;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 2rem;
+
+  /* Styles pour le titre */
+  .about-grid h2 {
+    color: #1a5085;
+    font-size: 2rem;
+    margin-top: 250px; /* Espace pour l'image au-dessus */
     margin-bottom: 1rem;
-    background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #1a5085;
+    padding-left: 1rem;
+    width: 100%;
   }
-  
-  /* Masquer le bouton d'astuces en desktop puisqu'elles sont toujours visibles */
-  .services .tip-button {
-    display: none;
+
+  /* Styles pour le texte */
+  .about-grid p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #333;
+    width: 100%;
   }
-  
-  /* Chaque service énuméré sur une seule ligne */
-  .services ul li {
+
+  /* Styles pour les listes */
+  .about-grid ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .about-grid li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 10px;
-    max-width: 100%;
-    padding-right: 20px;
   }
-  
-  /* Titre de section aligné à gauche */
-  .services .section-title {
-    text-align: left;
-    width: 100%;
-  }
-  
-  .services .section-title h2::after {
+
+  .about-grid li::before {
+    content: "✓";
+    color: #1a5085;
+    position: absolute;
     left: 0;
-    transform: none;
+    font-weight: bold;
+  }
+
+  /* Styles pour les astuces */
+  .cleaning-tips {
+    background-color: #f5f9fc;
+    border-left: 4px solid #1a5085;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+    display: block;
+  }
+
+  .cleaning-tips h3 {
+    color: #1a5085;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .cleaning-tips ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .cleaning-tips li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cleaning-tips li::before {
+    content: "•";
+    color: #1a5085;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  /* Masquer le bouton en version desktop */
+  .tips-toggle {
+    display: none;
   }
 }
 
-/* Préserver la mise en page mobile existante */
-@media (max-width: 991px) {
-  /* Conserver l'affichage normal des astuces en mobile */
-  .services .tips-container {
-    display: none;
-  }
-  
-  /* Conserver l'affichage du bouton d'astuces en mobile */
-  .services .tip-button {
-    display: block;
-  }
-  
-  /* Version mobile - images avant titres */
+/* Styles pour la version mobile - préserver le comportement actuel */
+@media screen and (max-width: 767px) {
   .about-grid {
+    display: flex;
     flex-direction: column;
-    gap: 30px;
+    margin-bottom: 2rem;
   }
-  
-  .services .service-image {
-    position: static;
-    order: -1;
+
+  .about-grid img {
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    order: -1;
   }
-  
-  /* Pas de modification pour les listes en mobile */
-  .services ul li {
+
+  .about-grid h2 {
+    color: #1a5085;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #1a5085;
+    padding-left: 0.5rem;
+  }
+
+  .about-grid p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .about-grid ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-grid li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
+  }
+
+  .about-grid li::before {
+    content: "✓";
+    color: #1a5085;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .cleaning-tips {
+    background-color: #f5f9fc;
+    border-left: 4px solid #1a5085;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    display: none;
+  }
+
+  .cleaning-tips.active {
+    display: block;
+  }
+
+  .cleaning-tips h3 {
+    color: #1a5085;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .cleaning-tips ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .cleaning-tips li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .cleaning-tips li::before {
+    content: "•";
+    color: #1a5085;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .tips-toggle {
+    background-color: #1a5085;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .tips-toggle:hover {
+    background-color: #0d3d68;
   }
 }
