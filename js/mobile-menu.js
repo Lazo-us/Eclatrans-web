@@ -1,28 +1,22 @@
-// Mobile menu toggle functionality - Version unifiée (dropdown uniquement)
+// Mobile menu toggle functionality - Version corrigée
 document.addEventListener('DOMContentLoaded', function() {
-    // Utiliser le bouton de menu mobile existant
+    // Sélectionner les éléments du menu
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const nav = document.querySelector('nav');
     
-    // Supprimer tout menu latéral qui pourrait exister
-    const sideMenus = document.querySelectorAll('.side-menu, .sidebar-menu, .offcanvas-menu');
-    sideMenus.forEach(menu => {
-        if (menu) {
-            menu.remove();
-        }
-    });
-    
-    if (mobileMenuToggle && navMenu) {
+    if (mobileMenuToggle && nav) {
+        console.log('Menu mobile initialisé');
+        
         // S'assurer que le menu est correctement initialisé
-        navMenu.classList.remove('active');
+        nav.classList.remove('active');
         mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
         
         // Fermer le menu quand on clique sur un lien
-        const navLinks = navMenu.querySelectorAll('a');
+        const navLinks = nav.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
+                nav.classList.remove('active');
                 mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
             });
@@ -32,13 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuToggle.addEventListener('click', function(event) {
             event.stopPropagation();
             event.preventDefault();
-            navMenu.classList.toggle('active');
+            
+            console.log('Bouton menu mobile cliqué');
+            nav.classList.toggle('active');
             
             // Change icon based on menu state
-            if (navMenu.classList.contains('active')) {
+            if (nav.classList.contains('active')) {
+                console.log('Menu activé');
                 mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
                 mobileMenuToggle.setAttribute('aria-expanded', 'true');
             } else {
+                console.log('Menu désactivé');
                 mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
@@ -46,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Fermer le menu quand on clique en dehors
         document.addEventListener('click', function(event) {
-            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickInsideMenu = nav.contains(event.target);
             const isClickOnToggle = mobileMenuToggle.contains(event.target);
             
-            if (!isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
+            if (!isClickInsideMenu && !isClickOnToggle && nav.classList.contains('active')) {
+                nav.classList.remove('active');
                 mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
@@ -58,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Close menu when window is resized to desktop size
         window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
+            if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                nav.classList.remove('active');
                 mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
@@ -73,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentPage === linkPage || (currentPage === '' && linkPage === 'index.html')) {
                 link.classList.add('active');
             }
+        });
+    } else {
+        console.error('Éléments du menu mobile non trouvés:', {
+            mobileMenuToggle: !!mobileMenuToggle,
+            nav: !!nav
         });
     }
 });
