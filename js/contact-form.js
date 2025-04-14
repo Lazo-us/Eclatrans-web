@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
             submitButton.disabled = true;
             
-            // Configuration pour EmailJS
-            const serviceID = 'service_eclatrans'; // ID du service EmailJS
-            const templateID = 'template_eclatrans'; // ID du template EmailJS
+            // Configuration pour EmailJS - IDs mis à jour
+            const serviceID = 'service_3lzfpnj'; // ID du service EmailJS public
+            const templateID = 'template_ywk2ixj'; // ID du template EmailJS public
             
             // Préparer les données pour l'envoi
             const templateParams = {
