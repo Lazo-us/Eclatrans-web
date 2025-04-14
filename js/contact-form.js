@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.querySelector('.success-message');
     const errorMessage = document.querySelector('.error-message');
     
+    // Initialiser EmailJS avec la clé publique
+    emailjs.init("JnQz9ck-HqLVYVHFP");
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -28,9 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = true;
             
             // Configuration pour EmailJS
-            const serviceID = 'default_service'; // Remplacer par votre Service ID EmailJS
-            const templateID = 'template_eclatrans'; // Remplacer par votre Template ID EmailJS
-            const userID = 'user_eclatrans'; // Remplacer par votre User ID EmailJS
+            const serviceID = 'service_eclatrans'; // ID du service EmailJS
+            const templateID = 'template_eclatrans'; // ID du template EmailJS
             
             // Préparer les données pour l'envoi
             const templateParams = {
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             // Envoyer l'email via EmailJS
-            emailjs.send(serviceID, templateID, templateParams, userID)
+            emailjs.send(serviceID, templateID, templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     
