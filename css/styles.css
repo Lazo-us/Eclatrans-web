@@ -311,16 +311,27 @@ header {
   background: linear-gradient(to right, var(--primary-color), var(--gold-accent));
 }
 
-/* Desktop layout - images on the side */
+/* Desktop layout - three column with empty middle section */
 @media (min-width: 992px) {
   .service-content-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     grid-template-areas: 
-      "content image"
-      "content image";
-    gap: 2rem;
+      "content middle image";
+    gap: 1.5rem;
     align-items: start;
+  }
+  
+  .services .service-text-content {
+    grid-area: content;
+    width: 100%;
+  }
+  
+  .services .service-middle-section {
+    grid-area: middle;
+    height: 100%;
+    min-height: 300px;
+    border: 1px solid #ff0000;
   }
   
   .services .service-image {
@@ -329,15 +340,8 @@ header {
     max-height: 400px;
     margin-bottom: 0;
     width: 100%;
-    border: 1px solid var(--gray-200);
     border-radius: 8px;
     overflow: hidden;
-  }
-  
-  .services .service-text-content {
-    grid-area: content;
-    width: 100%;
-    padding-right: 1rem;
   }
   
   .services .section-title {
